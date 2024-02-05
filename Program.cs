@@ -11,57 +11,77 @@ namespace Collection_Framework
     {
         static void Main(string[] args)
         {
+            /* HashTable Collection class 
+               Here we will discuss about Hashtable and how the elements are stored in the hashtable
+               like we use hashtable, firstly we are using the Non-Generic Collection Framework to create the hashtable 
+               collection class, and the hashtable is different from the arraylist in the manner that in the hashtable 
+               we can define the key as per our requirement and then assign a value to it, but in arraylist a pre-defined
+               key is present for every element, i.e. pre-defined index position and that becomes difficult to determine 
+               the element, i.e. exactly what element we want to access and so we use hashtable
+               And it is also to be noted that the elements with the key and values will displayed randomly */
+
+
+            /* Hashtable ht = new Hashtable()
+            {
+                {"Name", "Shouvik"},
+                {"Class", "A" },
+                {"Passed", true}
+            }; */
+
+            Hashtable ht = new Hashtable();
+            ht.Add("Name", "Shouvik"); // To add the elements in the hashtable
+            ht.Add("Designation", "Manager"); // Elements of the different datatypes can be stored
+            ht.Add("Location", "Hydrebad");
+            ht.Add("Salary", 25000);
+            ht.Add("Promoted", "AVP");
+
+            Console.WriteLine(ht.Count);
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("Name".GetHashCode()); // Gives us the hash code that is present at the back-end of integer value
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine(ht.Contains("Designation")); // Checks if the key is present or not
+            Console.WriteLine(ht.ContainsKey("Location")); // Checks if the key is present or not
+            Console.WriteLine(ht.ContainsValue(25000)); // Checks if the value is present or not
+            Console.WriteLine("-----------------------------------------------------------");
+
+            //Console.WriteLine(ht["Designation"]); // To access the element in the hashtable
+
+            foreach (object key  in ht.Keys)
+            {
+                Console.WriteLine(key); //It will print all the keys present in the hashtable collection
+            }
+
+            Console.WriteLine("-----------------------------------------------------------");
+
+            foreach (object key in ht.Keys)
+            {
+                Console.WriteLine(ht[key]); // It will display all the values of the keys in the collection
+            }
+
+            Console.WriteLine("-----------------------------------------------------------");
+
+            foreach (object value in ht.Values)
+            {
+                Console.WriteLine(value); // It will display all the values of the keys in the collection
+            }
+
+            Console.WriteLine("-----------------------------------------------------------");
+
+            foreach (object key in ht.Keys)
+            {
+                Console.WriteLine(key + ":" + ht[key]); //It will print all the key as well as the value of the keys
+            }
+
+            ht.Remove("Salary"); // Helps to remove the particular key from the collection
+
+            // ht.Clear(); // Removes all the key values from the collection
+            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("-----------------------------------------------------------");
             
-
-            /* Stack (Non-Generic) & (Generic), so firstly in a stack we store pile of objects,
-               suppose like one object on the top of other object and the process continues,
-               and now we will discuss about NON-GENERIC STACK where we will store elements of different datatype */
-            Stack mystack = new Stack();
-            mystack.Push("Anil"); // String value
-            mystack.Push(25); // Integer value
-            mystack.Push('B'); // Character value 
-            mystack.Push(true); // Boolean value
-            //mystack.Push(null); // Null value
-            mystack.Push("Anil"); // Duplicate value
-            mystack.Push(6.11); // Double value
-            Console.WriteLine("------------------------");
-            Console.WriteLine( mystack.Count); // Counts the total number of elements and returns an integer value
-            Console.WriteLine("------------------------");
-            Console.WriteLine(mystack.Peek()); // Displays the peek or the top element of the stack
-            Console.WriteLine("------------------------");
-            Console.WriteLine(mystack.Contains("Anil")); // Checks if the element is present in the stack collection and return a bool value
-            Console.WriteLine("------------------------");
-
-            foreach (object item2 in mystack) // Using foreach loop to proint the values
+            foreach (object key in ht.Keys)
             {
-                Console.WriteLine(item2);
+                Console.WriteLine(key + ":" + ht[key]); 
             }
-
-            mystack.Pop(); // To remove the first element from the stack, the element which was stored last, this method is used
-
-            mystack.Clear(); // Removes all the elemnts in the stack
-            Console.WriteLine("------------------------");
-            foreach (object item2 in mystack) // Using foreach loop to print the values
-            {
-                Console.WriteLine(item2);
-            }
-
-            /* Now we will discuss about Generic Stack Collection */
-
-            Stack<int> mystack2 = new Stack<int>();
-            mystack2.Push(9); // Only the value of a single datatype is stored as in generic collection we generalize the values
-            mystack2.Push(10);
-
-            foreach (var items2 in mystack2)
-            {
-                Console.WriteLine(items2);
-            }
-
-            /* And all the methods and properties used are same like non-generic collection */
-            Console.ReadLine();
-
-
-
         }
     }
 }
