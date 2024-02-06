@@ -9,79 +9,90 @@ namespace Collection_Framework
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static public void Main()
         {
-            /* HashTable Collection class 
-               Here we will discuss about Hashtable and how the elements are stored in the hashtable
-               like we use hashtable, firstly we are using the Non-Generic Collection Framework to create the hashtable 
-               collection class, and the hashtable is different from the arraylist in the manner that in the hashtable 
-               we can define the key as per our requirement and then assign a value to it, but in arraylist a pre-defined
-               key is present for every element, i.e. pre-defined index position and that becomes difficult to determine 
-               the element, i.e. exactly what element we want to access and so we use hashtable
-               And it is also to be noted that the elements with the key and values will displayed randomly */
+            /* HashSet is a generic collection, under the namespace System.Collections.Generic, here the datatype is generalized
+               and only single type of data can be added. */
 
+            HashSet<string> hs = new HashSet<string>(); // hashset has been defined, with an object named as hs
+            hs.Add("Shouvik"); // Data of only a single type is generated
+            hs.Add("Section B"); // value declaration and we are using Add() method, for adding the elements
+            hs.Add("Class A");
+            hs.Add("Promoted");
+            hs.Add("Yes");
 
-            /* Hashtable ht = new Hashtable()
+            Console.WriteLine(hs.Count); // to count the total number of elements
+            Console.WriteLine("---------------------------------------------------------------");
+
+            foreach (var val in hs) // using the foreach loop to display the elements
             {
-                {"Name", "Shouvik"},
-                {"Class", "A" },
-                {"Passed", true}
-            }; */
-
-            Hashtable ht = new Hashtable();
-            ht.Add("Name", "Shouvik"); // To add the elements in the hashtable
-            ht.Add("Designation", "Manager"); // Elements of the different datatypes can be stored
-            ht.Add("Location", "Hydrebad");
-            ht.Add("Salary", 25000);
-            ht.Add("Promoted", "AVP");
-
-            Console.WriteLine(ht.Count);
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("Name".GetHashCode()); // Gives us the hash code that is present at the back-end of integer value
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine(ht.Contains("Designation")); // Checks if the key is present or not
-            Console.WriteLine(ht.ContainsKey("Location")); // Checks if the key is present or not
-            Console.WriteLine(ht.ContainsValue(25000)); // Checks if the value is present or not
-            Console.WriteLine("-----------------------------------------------------------");
-
-            //Console.WriteLine(ht["Designation"]); // To access the element in the hashtable
-
-            foreach (object key  in ht.Keys)
-            {
-                Console.WriteLine(key); //It will print all the keys present in the hashtable collection
+                Console.WriteLine(val);
             }
 
-            Console.WriteLine("-----------------------------------------------------------");
+            //hs.Remove("Class A"); // here we remove the element of our choice using Remove() method, note that in order to remove the element we also need to specify the exact element inside the parameter
 
-            foreach (object key in ht.Keys)
-            {
-                Console.WriteLine(ht[key]); // It will display all the values of the keys in the collection
-            }
+            //Console.WriteLine("----------------------------------------------------------------");
+            //foreach (var val in hs) // using the foreach loop to display the elements
+            //{
+            //    Console.WriteLine(val);
+            //}
 
-            Console.WriteLine("-----------------------------------------------------------");
-
-            foreach (object value in ht.Values)
-            {
-                Console.WriteLine(value); // It will display all the values of the keys in the collection
-            }
-
-            Console.WriteLine("-----------------------------------------------------------");
-
-            foreach (object key in ht.Keys)
-            {
-                Console.WriteLine(key + ":" + ht[key]); //It will print all the key as well as the value of the keys
-            }
-
-            ht.Remove("Salary"); // Helps to remove the particular key from the collection
-
-            // ht.Clear(); // Removes all the key values from the collection
-            Console.WriteLine("-----------------------------------------------------------");
-            Console.WriteLine("-----------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------");
+            Console.WriteLine("---------------------------------------------------------------");
+            HashSet<string> hs1 = new HashSet<string>() // 2nd hashset has been declared
             
-            foreach (object key in ht.Keys)
+                {"Shouvik", "Section B", "Class B" ,"Promoted", "No"}; // Elements are declared in another way like this ijn hashset
+
+            //hs1.Clear(); // removes all the elemnt from the hashset collection
+
+            foreach (var value in hs1) // using the foreach loop to display the elements for the second hashset
             {
-                Console.WriteLine(key + ":" + ht[key]); 
+                Console.WriteLine(value);
             }
+
+            Console.WriteLine("----------------------------------------------------------------");
+
+            hs.UnionWith(hs1); // suppose if to to hashset are there then we can use this function to union (combine) all the elemnts of the hashsets
+
+            foreach (var ele in hs) // displaying all the elemnts of both the hashsets using a variable ele 
+            {
+                Console.WriteLine(ele);
+            } 
+
+            
+            HashSet<string> hs2 = new HashSet<string>();
+            hs2.Add("Prakhar");
+            hs2.Add("Added");
+            hs2.Add("Group Four");
+            hs2.Add("Promoted");
+            
+            
+            
+            
+            HashSet<string> hs3 = new HashSet<string>();
+
+
+
+            hs2.Add("Prakhar");
+            hs2.Add("Added");
+            hs2.Add("No Group");
+            hs2.Add("Not Promoted");
+            
+            hs2.IntersectWith(hs3); //Intersection Method
+
+            foreach (var var in hs2)
+            {
+                Console.WriteLine(var);
+            }
+
+            hs2.ExceptWith(hs3); //ExceptWith Method
+
+            foreach (var var2 in hs2)
+            {
+                Console.WriteLine(var2);
+            }
+            Console.ReadLine();
         }
     }
-}
+        
+} 
