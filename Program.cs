@@ -11,87 +11,88 @@ namespace Collection_Framework
     {
         static public void Main()
         {
-            /* HashSet is a generic collection, under the namespace System.Collections.Generic, here the datatype is generalized
-               and only single type of data can be added. */
+            /* Now, we will talk about List Collection, which comes under the Generic Collection namespace, means
+               the list collection of items is generic and for a particular list collection object the elements will
+               be of the same datatype, means they are strongly typed and unlike non-generic collection
+               an object of list collection cannot have different datatypes, but here different objects can be created 
+               of different datatypes. */
 
-            HashSet<string> hs = new HashSet<string>(); // hashset has been defined, with an object named as hs
-            hs.Add("Shouvik"); // Data of only a single type is generated
-            hs.Add("Section B"); // value declaration and we are using Add() method, for adding the elements
-            hs.Add("Class A");
-            hs.Add("Promoted");
-            hs.Add("Yes");
+            List<int> mynumbers = new List<int>();
+            mynumbers.Add(77);
+            mynumbers.Add(22);
+            mynumbers.Add(88);
+            mynumbers.Add(11);
+            mynumbers.Add(44);
+            mynumbers.Add(33);
 
-            Console.WriteLine(hs.Count); // to count the total number of elements
-            Console.WriteLine("---------------------------------------------------------------");
-
-            foreach (var val in hs) // using the foreach loop to display the elements
+            foreach (int item in mynumbers)
             {
-                Console.WriteLine(val);
+                Console.WriteLine(item);
+
             }
 
-            //hs.Remove("Class A"); // here we remove the element of our choice using Remove() method, note that in order to remove the element we also need to specify the exact element inside the parameter
+            Console.WriteLine("---------------------------------------------------------");
 
-            //Console.WriteLine("----------------------------------------------------------------");
-            //foreach (var val in hs) // using the foreach loop to display the elements
-            //{
-            //    Console.WriteLine(val);
-            //}
+            // mynumbers.AddRange(mynumbers); // it basically doubles the range of the object elements
 
-            Console.WriteLine("---------------------------------------------------------------");
-            Console.WriteLine("---------------------------------------------------------------");
-            HashSet<string> hs1 = new HashSet<string>() // 2nd hashset has been declared
-            
-                {"Shouvik", "Section B", "Class B" ,"Promoted", "No"}; // Elements are declared in another way like this ijn hashset
+            // mynumbers.Insert(1, 55); // Inserts the new element at the index position specified, thus increaing the index position of the other elements by +1
 
-            //hs1.Clear(); // removes all the elemnt from the hashset collection
+            // mynumbers.InsertRange(3, mynumbers); // Inserts the entire collection of elements of mynumber at the index 3
 
-            foreach (var value in hs1) // using the foreach loop to display the elements for the second hashset
+            // mynumbers.Remove(11); // Removes the element being specified
+
+            // mynumbers.RemoveAt(4); // Removes the element of the particular index being defined
+
+            // mynumbers.RemoveRange(1, 4); // First define the index position and then count of elements to be removed
+
+            // RemoveAll()
+
+            foreach (int item in mynumbers)
             {
-                Console.WriteLine(value);
+                Console.WriteLine(item);
+
             }
 
-            Console.WriteLine("----------------------------------------------------------------");
 
-            hs.UnionWith(hs1); // suppose if to to hashset are there then we can use this function to union (combine) all the elemnts of the hashsets
+            Console.WriteLine("---------------------------------------------------------");
 
-            foreach (var ele in hs) // displaying all the elemnts of both the hashsets using a variable ele 
+
+
+            //Console.WriteLine(mynumbers.Count); // Counts the total number of elements in the object mynumbers
+
+            // Console.WriteLine("----------------------------------------------------------");
+
+            // mynumbers.Sort(); // Sort property to sort the elements of the object mynumbers
+
+            // Console.WriteLine(mynumbers.Capacity); //It is used to check the storage capacity, of how many elements we can store, also with the help of auto-resizing functionality it can double it's capacity
+
+            // Console.WriteLine(mynumbers[1]); // Assigning the index position, to access the value of the particular index position
+
+            //Console.WriteLine("----------------------------------------------------------");
+            //foreach (int item in mynumbers)
+            //   {
+            //    Console.WriteLine(item);
+
+            //   }
+
+            // Console.WriteLine("----------------------------------------------------------");
+
+            List<string> names = new List<string>();
+            names.Add("Shouvik");
+            names.Add("Raj");
+            names.Add("Saurabh");
+            names.Add(null); // we can also store null values for reference type object elements
+            names.Add("Saurabh"); // duplicate values also
+
+            foreach (string item1 in names)
             {
-                Console.WriteLine(ele);
-            } 
-
-            
-            HashSet<string> hs2 = new HashSet<string>();
-            hs2.Add("Prakhar");
-            hs2.Add("Added");
-            hs2.Add("Group Four");
-            hs2.Add("Promoted");
-            
-            
-            
-            
-            HashSet<string> hs3 = new HashSet<string>();
-
-
-
-            hs2.Add("Prakhar");
-            hs2.Add("Added");
-            hs2.Add("No Group");
-            hs2.Add("Not Promoted");
-            
-            hs2.IntersectWith(hs3); //Intersection Method
-
-            foreach (var var in hs2)
-            {
-                Console.WriteLine(var);
+                Console.WriteLine(item1);
             }
 
-            hs2.ExceptWith(hs3); //ExceptWith Method
 
-            foreach (var var2 in hs2)
-            {
-                Console.WriteLine(var2);
-            }
-            Console.ReadLine();
+
+
+            Console.ReadLine(); 
         }
     }
         
