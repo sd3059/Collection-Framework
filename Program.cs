@@ -7,19 +7,22 @@ using System.Threading.Tasks;
 
 namespace Collection_Framework
 {
-    public class SortedDictionary
+    public class LinkedList
     {
         public static void Main(string[] args)
         {
-            SortedDictionary<string, string> names = new SortedDictionary<string, string>();
-            names.Add("1", "Sonoo");
-            names.Add("4", "Peter");
-            names.Add("5", "James");
-            names.Add("3", "Ratan");
-            names.Add("2", "Irfan");
-            foreach (KeyValuePair<string, string> kv in names)
+            // Create a list of strings  
+            var names = new LinkedList<string>();
+            names.AddLast("Sonoo Jaiswal");
+            names.AddLast("Ankit");
+            names.AddLast("Peter");
+            names.AddLast("Irfan");
+            names.AddFirst("John");//added to first index  
+
+            // Iterate list element using foreach loop  
+            foreach (var name in names)
             {
-                Console.WriteLine(kv.Key + " " + kv.Value);
+                Console.WriteLine(name);
             }
         }
     }
