@@ -7,17 +7,16 @@ using System.Threading.Tasks;
 
 namespace Collection_Framework
 {
-    public class Dictionary
+    public class SortedDictionary
     {
         public static void Main(string[] args)
         {
-            Dictionary<string, string> names = new Dictionary<string, string>();
+            SortedDictionary<string, string> names = new SortedDictionary<string, string>();
             names.Add("1", "Sonoo");
-            names.Add("2", "Peter");
-            names.Add("3", "James");
-            names.Add("4", "Ratan");
-            names.Add("5", "Irfan");
-
+            names.Add("4", "Peter");
+            names.Add("5", "James");
+            names.Add("3", "Ratan");
+            names.Add("2", "Irfan");
             foreach (KeyValuePair<string, string> kv in names)
             {
                 Console.WriteLine(kv.Key + " " + kv.Value);
